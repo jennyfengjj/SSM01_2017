@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	
+	<!-- JDBC Driver -->
+	<classPathEntry
+		location="D:\apache-maven-3.5.0\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+	
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+		
+		<jdbcConnection
+			connectionURL="jdbc:mysql://127.0.0.1:3306/mybatis?serverTimezone=UTC&amp;nullNamePatternMatchesAll=true"
+			driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+			
+		<javaModelGenerator targetPackage="com.qst.po"
+			targetProject="ssm01" />
+			<!-- 使用maven mybatis-generator插件时按下面路径配置 
+			targetProject="D:\workspace-ssm\mybatis01\src\main\java" /> -->
+		<sqlMapGenerator targetPackage="com.qst.dao"
+			targetProject="ssm01" />
+			<!-- 使用maven mybatis-generator插件时按下面路径配置 
+			targetProject="D:\workspace-ssm\mybatis01\src\main\resources" />-->
+		<javaClientGenerator targetPackage="com.qst.dao"
+			targetProject="ssm01" type="XMLMAPPER"/>
+			<!-- 使用maven mybatis-generator插件时按下面路径配置 
+			targetProject="D:\workspace-ssm\mybatis01\src\main\resources" type="XMLMAPPER" />-->
+			
+		<table schema="" tableName="t_customer" domainObjectName="Customer"></table>
+		<!-- 
+		<table tableName="app_bind_status" domainObjectName="AppBindStatus"   
+            enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"   
+            enableSelectByExample="false" selectByExampleQueryId="false">
+            	<columnOverride column="ID" property="id" javaType = "Integer" />
+        </table> -->  
+	</context>
+</generatorConfiguration>
